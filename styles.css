@@ -1,0 +1,263 @@
+﻿/* Загальні стилі для html та body */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    background-image: url('your-background-image.jpg'); /* Додаємо фон */
+    background-size: cover;
+    background-position: center;
+    font-family: Arial, sans-serif;
+}
+
+/* Додаємо базові стилі для меню */
+.menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    opacity: 0; /* Початкова прозорість меню */
+    max-height: 0; /* Початковий стан — приховане меню */
+    overflow: hidden;
+    transition: opacity 0.5s ease, max-height 0.5s ease; /* Анімація плавного показу */
+}
+
+/* Стиль для видимого меню */
+.menu.show {
+    opacity: 1; /* Видиме меню */
+    max-height: 500px; /* Максимальна висота, коли меню розгорнуте */
+}
+
+/* Кнопка меню */
+.menu-button {
+    width: 100%;
+    padding: 10px 20px;
+    background-color: #ff5722; /* Помаранчева кнопка */
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.menu-button:hover {
+    background-color: #e64a19; /* Трохи темніший відтінок при наведенні */
+    transform: scale(1.05); /* Невелике збільшення при наведенні */
+}
+
+/* Стиль для кнопок всередині меню */
+.menu li a {
+    display: block;
+    padding: 10px;
+    background-color: #f0f0f0; /* Світло-сірий фон для кнопок меню */
+    color: #333; /* Темно-сірий текст */
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 5px 0;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Анімація при наведенні */
+.menu li a:hover {
+    background-color: #ccc; /* Темніший сірий при наведенні */
+    transform: scale(1.05); /* Збільшення кнопки при наведенні */
+}
+
+/* Стилі для header і footer */
+header, footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+    width: 100%; /* Займає всю ширину сторінки */
+}
+
+header h1 {
+    margin: 0;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    position: relative;
+    display: inline-block;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+/* Стилі для навігаційного меню */
+nav ul li a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #ff5722; /* Колір підкреслення */
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+    transform-origin: bottom right;
+}
+
+nav ul li a:hover {
+    color: #ff5722; /* Колір тексту при наведенні */
+}
+
+nav ul li a:hover::before {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Додаємо анімацію при наведенні */
+nav ul li a:hover {
+    background-color: #555;
+    transform: scale(1.05);
+    color: #ff5722;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #333;
+    color: white;
+}
+
+.tooltip {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    display: none;
+}
+
+/* Стиль для основного контенту */
+main {
+    flex: 1;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Ігрова зона для гри */
+#game-area {
+    margin: 20px auto;
+    width: 600px;
+    height: 400px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: 10px;
+    position: relative;
+}
+
+/* Отвори для кротів */
+.hole {
+    width: 150px;
+    height: 150px;
+    background-color: brown;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Картинка крота */
+.mole-img {
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    transition: opacity 0.5s ease;
+}
+
+/* Стилі для кнопок */
+button {
+    padding: 10px 20px;
+    background-color: #ff5722; /* Оранжева кнопка */
+    color: white;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background-color: #e64a19; /* Темніший оранжевий при наведенні */
+    transform: scale(1.05); /* Збільшення при наведенні */
+}
+
+/* Зменшення розміру картинок у каруселі */
+.carousel img {
+    margin: 0; /* Прибираємо відступи */
+    width: 500px;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.carousel img:hover {
+    transform: scale(1.05); /* Невелике збільшення при наведенні */
+}
+
+/* Адаптивні стилі для телефонів та планшетів */
+@media (max-width: 768px) {
+    .menu {
+        opacity: 1; /* Відображення меню на мобільних */
+        max-height: 500px; /* Максимальна висота для мобільного */
+    }
+
+    .menu-button {
+        display: block; /* Відображення кнопки меню на мобільних */
+    }
+
+    header, footer {
+        padding: 10px;
+    }
+
+    nav ul li {
+        display: block;
+        margin: 10px 0; /* Вертикальне відображення пунктів меню */
+    }
+
+    #game-area {
+        width: 100%; /* Автоматична ширина для мобільних */
+        height: auto;
+        grid-template-columns: repeat(2, 1fr); /* Менше колонок на мобільних */
+        grid-template-rows: repeat(3, 1fr); /* Більше рядів на мобільних */
+    }
+
+    .carousel img {
+        width: 100%; /* Зображення займають всю ширину на мобільних */
+    }
+
+    main {
+        padding: 10px;
+    }
+}

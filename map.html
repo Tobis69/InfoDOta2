@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<!-- map.html -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click Coordinates</title>
+</head>
+<body>
+
+
+    <!-- Ваш основний HTML контент -->
+
+    <!-- Додаємо JavaScript безпосередньо перед закриттям тега body -->
+    <script>
+        document.addEventListener('click', function(event) {
+            const x = event.clientX;
+            const y = event.clientY;
+            console.log(`Координати кліка: X: ${x}, Y: ${y}`);
+        });
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dota 2 Interactive Map</title>
+    <link rel="stylesheet" href="style.css"> <!-- Підключення вашого CSS -->
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            position: relative;
+        }
+
+        header, footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+        }
+
+        .container {
+            display: flex;
+            flex: 1;
+            margin: 10px;
+        }
+
+        main {
+            flex: 1;
+            padding: 10px;
+        }
+
+        aside {
+            background-color: #f8f8f8;
+            padding: 10px;
+            width: 200px;
+            margin-right: 20px;
+        }
+		nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    position: relative;
+    display: inline-block;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+/* Додати ефект підкреслення для навігаційних кнопок */
+nav ul li a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;    left: 0;
+
+    width: 100%;
+    height: 3px;
+    background-color: #ff5722; /* Колір підкреслення */
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+    transform-origin: bottom right;
+}
+
+nav ul li a:hover {
+    color: #ff5722; /* Колір тексту при наведенні */
+}
+
+nav ul li a:hover::before {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        /* Додаємо анімацію при наведенні */
+        nav ul li a:hover {
+            background-color: #555;
+            transform: scale(1.05);
+            color: #ff5722;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #333;
+            color: white;
+        }
+
+        .tooltip {
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Dota 2 Interactive Map</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="nav-link">Головна</a></li>
+                <li><a href="about.html" class="nav-link">Про себе</a></li>
+                <li><a href="contact.html" class="nav-link">Контакти</a></li>
+                <li><a href="comments.html" class="nav-link">Коментарі</a></li>
+                <li><a href="map.html" class="nav-link">Карта Dota2</a></li>
+				<li><a href="game.html">Міні ігра </a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <img src="aqjkx8we9c3y.jpg" alt="Dota 2 Map" usemap="#dota2map" style="max-width: 100%; height: auto;">
+
+        <map name="dota2map">
+            <area shape="circle" coords="207,350,150" alt="Top Lane" href="#" onmouseover="showTooltip(event, 'Top Lane: Ідеально підходить для оффлейнерів і налаштування ганк-тактик.')" onmouseout="hideTooltip()">
+            <area shape="circle" coords="699,850,80" alt="Mid Lane" href="#" onmouseover="showTooltip(event, 'Mid Lane: Тут успішно грають одиночні герої, часто з підтримкою від рома.')" onmouseout="hideTooltip()">
+            <area shape="circle" coords="1304,1300,150" alt="Bot Lane" href="#" onmouseover="showTooltip(event, 'Bot Lane: Безпечна лінія, найкраща для носіїв і підтримки.')" onmouseout="hideTooltip()">
+            <area shape="circle" coords="535,650,80" alt="Roshan Pit" href="#" onmouseover="showTooltip(event, 'Roshan Pit: Контролюйте цю зону для отримання важливої переваги на карті.')" onmouseout="hideTooltip()">
+            <area shape="circle" coords="282,1200,200" alt="Light Side Base" href="#" onmouseover="showTooltip(event, 'База сил світла: Місце для відновлення та захисту головних будівель.')" onmouseout="hideTooltip()">
+            <area shape="circle" coords="1187,254,200" alt="Dark Side Base" href="#" onmouseover="showTooltip(event, 'База сил тьми: Стратегічна точка для контролю і оборони темної сторони.')" onmouseout="hideTooltip()">
+        </map>
+
+        <div id="tooltip" class="tooltip"></div>
+    </main>
+
+    <footer>
+        <p>Автор: Колодчак Юрій</p>
+        <p>Email: yuriy@example.com</p>
+        <p>Спонсор: abitap.com</p>
+    </footer>
+
+    <script>
+        function showTooltip(event, text) {
+            const tooltip = document.getElementById('tooltip');
+            tooltip.innerHTML = text;
+            tooltip.style.left = event.pageX + 'px';
+            tooltip.style.top = event.pageY + 'px';
+            tooltip.style.display = 'block';
+        }
+
+        function hideTooltip() {
+            const tooltip = document.getElementById('tooltip');
+            tooltip.style.display = 'none';
+        }
+    </script>
+</body>
+</html>

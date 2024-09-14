@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!-- comments.html -->
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Коментарі</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const commentsList = document.getElementById("comments-list");
+            const form = document.getElementById("comment-form");
+            const commentInput = document.getElementById("comment");
+
+            function loadComments() {
+                const comments = JSON.parse(localStorage.getItem("comments")) || [];
+                commentsList.innerHTML = comments.map(comment => `<li>${comment}</li>`).join("");
+            }
+
+            function saveComment(comment) {
+                const comments = JSON.parse(localStorage.getItem("comments")) || [];
+                comments.push(comment);
+                localStorage.setItem("comments", JSON.stringify(comments));
+                loadComments();
+            }
+
+            form.addEventListener("submit", function(event) {
+                event.preventDefault();
+                const comment = commentInput.value.trim();
+                if (comment) {
+                    saveComment(comment);
+                    commentInput.value = "";
+                }
+            });
+
+            loadComments();
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <img src="comm.png" alt="Логотип сайту" width="500" height="300">
+        
+        
+        <nav>
+            <ul>
+               <li><a href="index.html" class="nav-link">Головна</a></li>
+<li><a href="about.html" class="nav-link">Про себе</a></li>
+<li><a href="contact.html" class="nav-link">Контакти</a></li>
+<li><a href="comments.html" class="nav-link">Коментарі</a></li>
+<li><a href="map.html" class="nav-link">Карта Dota2</a></li>
+<li><a href="game.html">Міні ігра </a></li>
+
+            </ul>
+        </nav>
+    </header>
+    <main>
+        
+        <form id="comment-form">
+            <textarea id="comment" rows="4" placeholder="Введіть ваш коментар..."></textarea>
+            <br>
+            <button type="submit">Надіслати</button>
+        </form>
+        <h2>Коментарі</h2>
+        <ul id="comments-list"></ul>
+    </main>
+    <footer>
+        <p>Автор: Колодчак Юрій</p>
+        <p>Email: yuriy@example.com</p>
+		<p>Спонор: abitap.com</p>
+    </footer>
+</body>
+</html>
