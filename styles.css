@@ -261,3 +261,39 @@ button:hover {
         padding: 10px;
     }
 }
+/* Оптимізація для мобільних пристроїв */
+@media (max-width: 768px) {
+    img, iframe {
+        max-width: 100%; /* Зменшуємо розміри зображень та відео на мобільних */
+        height: auto; /* Пропорційне масштабування по висоті */
+    }
+
+    /* Інші мобільні стилі */
+    .menu-button {
+        font-size: 16px;
+        padding: 8px 15px;
+    }
+
+    .menu {
+        max-height: none; /* Показуємо повне меню без обмежень по висоті */
+    }
+
+    header, footer {
+        padding: 10px 0;
+    }
+
+    nav ul li {
+        display: block;
+        margin: 5px 0;
+    }
+
+    /* Стиль для головного контенту */
+    main {
+        padding: 10px;
+    }
+
+    /* Карусель */
+    .carousel img {
+        width: 100%; /* Ширина каруселі буде повністю адаптована під мобільні екрани */
+    }
+}
