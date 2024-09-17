@@ -15,7 +15,7 @@ html, body {
 .menu {
     list-style-type: none;
     padding: 0;
-    margin: 1;
+    margin: 50;
     opacity: 0; /* Початкова прозорість меню */
     max-height: 0; /* Початковий стан — приховане меню */
     overflow: hidden;
