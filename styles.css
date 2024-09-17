@@ -227,40 +227,7 @@ button:hover {
 }
 
 /* Адаптивні стилі для телефонів та планшетів */
-@media (max-width: 768px) {
-    .menu {
-        opacity: 1; /* Відображення меню на мобільних */
-        max-height: 500px; /* Максимальна висота для мобільного */
-    }
 
-    .menu-button {
-        display: block; /* Відображення кнопки меню на мобільних */
-    }
-
-    header, footer {
-        padding: 10px;
-    }
-
-    nav ul li {
-        display: block;
-        margin: 10px 0; /* Вертикальне відображення пунктів меню */
-    }
-
-    #game-area {
-        width: 100%; /* Автоматична ширина для мобільних */
-        height: auto;
-        grid-template-columns: repeat(2, 1fr); /* Менше колонок на мобільних */
-        grid-template-rows: repeat(3, 1fr); /* Більше рядів на мобільних */
-    }
-
-    .carousel img {
-        width: 100%; /* Зображення займають всю ширину на мобільних */
-    }
-
-    main {
-        padding: 10px;
-    }
-}
 /* Оптимізація для мобільних пристроїв */
 @media (max-width: 768px) {
     img, iframe {
